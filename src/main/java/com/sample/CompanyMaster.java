@@ -22,11 +22,11 @@ public class CompanyMaster {
     }
 
     @RequestMapping("/getCompanyById")
-    public Company getCompanyDetailsById(@RequestParam("id")int id,@RequestParam(value = "name", required = false) String name){
+    public String getCompanyDetailsById(@RequestParam("id")int id,@RequestParam(value = "name", required = false) String name){
 
         Company comapany = companyMasterRepo.findById(id);
 
-        return comapany;
+        return comapany.getCompanyName();
     }
 
 
