@@ -28,6 +28,7 @@ public class CompanyMasterController {
 
     @PostMapping(value = "/createCompany")
     public String createCompany(@RequestBody Company company){
+        System.out.println("company="+company.getCompanyName());
        return "";
     }
 
