@@ -25,7 +25,6 @@ public class CompanyMaster {
     public Company getCompanyDetailsById(@RequestParam("id")int id,@RequestParam(value = "name", required = false) String name){
 
         Company comapany = companyMasterRepo.findById(id);
-
         return comapany;
     }
 
