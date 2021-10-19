@@ -18,7 +18,6 @@ public class Company {
     @Column(name = "location")
     String location;
 
-
     public int getCompanyId() {
         return companyId;
     }
@@ -51,4 +50,6 @@ public class Company {
                 ", location='" + location + '\'' +
                 '}';
     }
+
+
 }

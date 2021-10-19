@@ -3,14 +3,13 @@ package com.sample;
 import com.sample.Repository.CompanyMasterRepo;
 import com.sample.entity.Company;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
 
 @RestController
-public class CompanyMaster {
+public class CompanyMasterController {
 
 
     @Autowired
@@ -22,12 +21,15 @@ public class CompanyMaster {
     }
 
     @RequestMapping("/getCompanyById")
-    public Company getCompanyDetailsById(@RequestParam("id")int id,@RequestParam(value = "name", required = false) String name){
-
+    public String getCompanyDetailsById(@RequestParam("id")int id,@RequestParam(value = "name", required = false) String name){
         Company comapany = companyMasterRepo.findById(id);
-        return comapany;
+        return comapany.getCompanyName();
     }
 
-
+    @PostMapping(value = "/createCompany")
+    public String createCompany(@RequestBody Company company){
+        System.out.println("company="+company.getCompanyName());
+       return "";
+    }
 
 }
